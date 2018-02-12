@@ -1,0 +1,12 @@
+name: FFACore
+main: FFA\Loader
+api: [2.0.0, 2.1.0, 3.0.0]
+version: 1.0
+author: TheBluePixel7u7
+commands:
+ tbpffa:
+   description: Config FFA command.
+   default: op
+ ffa:
+   description: Join FFA.
+   default: true
