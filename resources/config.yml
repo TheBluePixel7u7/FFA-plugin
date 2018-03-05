@@ -1,0 +1,9 @@
+---
+# FFACore v1.0 by @TheBluePixel7u7 (C: @SlideNetworkPE & @PocketDevs_ )
+# Send Message when player join
+ffacore.player.join: "Welcome !"
+# Maps (just 3 :c)
+ffacore.world1.name: lobby
+ffacore.world2.name: ffa2
+ffacore.world3.name: ffa3
+...
