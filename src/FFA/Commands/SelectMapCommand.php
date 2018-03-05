@@ -22,15 +22,13 @@ class SelectMapCommand extends PluginCommand{
 	$this->setAliases(["selectmap", "smap"]);
 	$this->base = $plugin;
 }
-
     public function execute(CommandSender $sender, $label, array $args){
 		if(empty($args[0])){
-		$sender->sendMessage("§bFFA§6Core§7> §9Use /select <map> \n §aAvaliable maps: §f[1, 2, 2]");
+		$sender->sendMessage("§bFFA§6Core§7> §9Use /select <map> \n §a
+}Avaliable maps: §f[1, 2, 2]");
 	return false;
 	}
 	if($args[0] == "1"){
-
-$sender->sendMessage("Teleporting...");
 
 $name = $this->base->getConfig()->get("ffacore.world1.name");//conseguir el nombre del mundo
 
@@ -38,12 +36,12 @@ if(!$this->base->getServer()->isLevelLoaded($name)){//verificar que el mundo no 
 $this->base->getServer()->loadLevel($name);//cargar si no lo esta
 }
 $world = $this->base->getServer()->getLevelByName($name);
+//var_dump($world);
 if($world instanceof Level){//verificar si el mundo es válido
 $sender->teleport($world->getSafeSpawn());
 }else{
-$sender->sendMessage("error");//error en caso que no lo sea
-}
-
+$sender->sendMessage("Error");//error en caso que no lo sea
 }
 	}
+}
 }
