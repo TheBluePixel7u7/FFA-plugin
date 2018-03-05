@@ -6,6 +6,7 @@ use pocketmine\event\Listener;
 use pocketmine\Player;
 use pocketmine\utils\Config;
 use pocketmine\event\player\PlayerItemHeldEvent;
+use pocketmine\event\player\PlayerJoinEvent;
 // commands
 use FFA\Commands\SelectMapCommand;
 
@@ -15,5 +16,10 @@ class Loader extends PluginBase implements Listener{
 		$this->saveDefaultConfig();
 		$this->getLogger()->info("Enabled.");
 		$this->getServer()->getCommandMap()->register("select", new SelectMapCommand($this));
+	}
+	public function onJoin(PlayerJoinEvent $ev){
+		$player = $ev->getPlayer();
+		
+		$player->sendMessage($this->getConfig()->get("ffacore.player.join"));
 	}
 }
