@@ -7,6 +7,8 @@ use pocketmine\command\CommandExecutor;
 use pocketmine\command\PluginCommand;
 use pocketmine\Player;
 use pocketmine\Server;
+use pocketmine\Level;
+use pocketmine\math\Vector3;
 use pocketmine\level\sound\EndermanTeleportSound;
 use pocketmine\utils\TextFormat;
 // Centro xd
@@ -18,6 +20,7 @@ class SelectMapCommand extends PluginCommand{
 	parent::__construct("select", $plugin);
 	$this->setDescription("Select ffa arena Command");
 	$this->setAliases(["selectmap", "smap"]);
+	$this->base = $plugin;
 }
 
     public function execute(CommandSender $sender, $label, array $args){
@@ -26,7 +29,21 @@ class SelectMapCommand extends PluginCommand{
 	return false;
 	}
 	if($args[0] == "1"){
-		$sender->sendMessage("§fTeleporting.....");
-	}
+
+$sender->sendMessage("Teleporting...");//porque agregar "§f" cuando ya el color es blanco? XD
+
+$name = $this->base->getConfig()->get("ffacore.world1.name");//conseguir el nombre del mundo
+
+if(!$this->base->getServer()->isLevelLoaded($name)){//verificar que el mundo no este cargado
+$this->base->getServer()->loadLevel($name);//cargar si no lo esta
+}
+$world = $this->base->getServer()->getLevelByName($name);
+if($world instanceof Level){//verificar si el mundo es válido
+$sender->teleport($world->getSafeSpawn());
+}else{
+$sender->sendMessage("error");//error en caso que no lo sea
+}
+
+}
 	}
 }
