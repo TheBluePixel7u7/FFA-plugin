@@ -30,7 +30,7 @@ class SelectMapCommand extends PluginCommand{
 	}
 	if($args[0] == "1"){
 
-$sender->sendMessage("Teleporting...");//porque agregar "§f" cuando ya el color es blanco? XD
+$sender->sendMessage("Teleporting...");
 
 $name = $this->base->getConfig()->get("ffacore.world1.name");//conseguir el nombre del mundo
 
