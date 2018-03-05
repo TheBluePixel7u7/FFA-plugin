@@ -16,7 +16,4 @@ class Loader extends PluginBase implements Listener{
 		$this->getLogger()->info("Enabled.");
 		$this->getServer()->getCommandMap()->register("select", new SelectMapCommand($this));
 	}
-  public function registerCommands(){
-	    $this->getCommand("select")->setExecutor(new SelectMapCommand($this));
-	}
 }
