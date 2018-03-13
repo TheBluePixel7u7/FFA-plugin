@@ -9,6 +9,8 @@ use pocketmine\event\player\PlayerItemHeldEvent;
 use pocketmine\event\player\PlayerJoinEvent;
 // commands
 use FFA\Commands\SelectMapCommand;
+use FFA\SlidePlayer;
+use FFA\Tasks\Task;
 
 class Loader extends PluginBase implements Listener{
 	public function onEnable(){
@@ -17,9 +19,12 @@ class Loader extends PluginBase implements Listener{
 		$this->getLogger()->info("Enabled.");
 		$this->getServer()->getCommandMap()->register("select", new SelectMapCommand($this));
 	}
+	public function HudTask(){
+	$this->getServer()->getScheduler()->scheduleRepeatingTask(new TimeTask($this), 30)->getTaskId();
+	}
 	public function onJoin(PlayerJoinEvent $ev){
 		$player = $ev->getPlayer();
 		
-		$player->sendMessage($this->getConfig()->get("ffacore.player.join"));
+		$player->sendMessage($this->getConfig()->get("ffacore.player.join.server","")); //thx becraft <3
 	}
 }
