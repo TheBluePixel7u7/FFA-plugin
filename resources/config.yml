@@ -1,9 +1,36 @@
 ---
 # FFACore v1.0 by @TheBluePixel7u7 (C: @SlideNetworkPE & @PocketDevs_ )
-# Send Message when player join
+# Config
+# when player execute /ffa leave change him gamemode to adventure
+ffacore.hub.gamemode.adventure: true
+# If player has permission ffacore.perm.kit.vip himm eill be get kit vip :)
+ffacore.kit.vip: false
+
+# Messages
+ffacore.player.join.server: "§3Slide§f> §fWelcome to the server!"
 ffacore.player.join: "Welcome !"
-# Maps (just 3 :c)
-ffacore.world1.name: lobby
-ffacore.world2.name: ffa2
-ffacore.world3.name: ffa3
+ffacore.player.join.inarena: "Teleporting to Arena..."
+ffacore.player.isalready: "You are in arena LMAO"
+ffacore.player.leave: "U leave lol"
+
+# Arena Name (pro version: more maps)
+ffacore.arena.name: lobby
+# Normal Kit
+ffacore.items.sword: 276
+ffacore.items.1: 0
+ffacore.items.2: 0
+ffacore.items.3: 0
+ffacore.armor.chestplate: 0
+ffacore.armor.leggings: 0
+ffacore.armor.boots: 0
+# VIP Kit
+ffacore.items.sword.vip: 0
+ffacore.items.1.vip: 0
+ffacore.items.2.vip: 0
+ffacore.items.3.vip: 0
+ffacore.armor.helmet.vip: 0
+ffacore.armor.chestplate.vip: 0
+ffacore.armor.leggings.vip: 0
+ffacore.armor.boots.vip: 0
+# Pro Version. Unlimited arenas, Choose maps and kits w/ items, Scenarios System (NoFall, NoClean, KillReward...)
 ...
