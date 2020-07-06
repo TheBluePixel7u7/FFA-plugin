@@ -12,16 +12,19 @@ use FFA\Commands\SelectMapCommand;
 use FFA\SlidePlayer;
 use FFA\Tasks\Task;
 
-class Loader extends PluginBase implements Listener{
+class Loader extends PluginBase implements Listener {
+	
 	public function onEnable(){
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 		$this->saveDefaultConfig();
 		$this->getLogger()->info("Enabled.");
 		$this->getServer()->getCommandMap()->register("select", new SelectMapCommand($this));
 	}
+	
 	public function HudTask(){
-	$this->getServer()->getScheduler()->scheduleRepeatingTask(new TimeTask($this), 30)->getTaskId();
+	$this->getScheduler()->scheduleRepeatingTask(new TimeTask($this), 30)->getTaskId();
 	}
+	
 	public function onJoin(PlayerJoinEvent $ev){
 		$player = $ev->getPlayer();
 		
